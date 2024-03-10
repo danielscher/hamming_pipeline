@@ -1,0 +1,13 @@
+[package]
+name = "mmcp"
+version = "0.1.0"
+authors = ["Andreas Schmidt <info@portal-as.de>"]
+edition = "2018"
+
+[dependencies]
+async-std = { version = "1.9.0", features = ["attributes", "unstable"] }
+color-eyre = "0.5.10"
+num-format = "0.4.0"
+prettytable-rs = "^0.8"
+rand = "0.8.2"
+structopt = "0.3"

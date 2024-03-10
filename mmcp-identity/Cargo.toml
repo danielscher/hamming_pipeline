@@ -1,0 +1,10 @@
+[package]
+name = "mmcp-identity"
+version = "0.1.0"
+authors = ["Andreas Schmidt <andreas.schmidt@iese.fraunhofer.de>"]
+edition = "2018"
+
+[dependencies]
+mmcp = { path = "../mmcp" }
+async-std = { version = "1.9.0", features = ["attributes", "unstable"] }
+color-eyre = "0.5.10"

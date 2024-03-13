@@ -1,0 +1,10 @@
+[package]
+name = "mmcp-impl"
+version = "0.1.0"
+authors = ["Andreas Schmidt <andreas.schmidt@iese.fraunhofer.de>"]
+edition = "2021"
+
+[dependencies]
+mmcp = { path = "../mmcp" }
+async-std = { version = "1.12.0", features = ["attributes", "unstable"] }
+color-eyre = "0.6.2"

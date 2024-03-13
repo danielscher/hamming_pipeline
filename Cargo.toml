@@ -3,3 +3,4 @@ members = [
     "mmcp",
     "mmcp-*"
 ]
+resolver = "2"

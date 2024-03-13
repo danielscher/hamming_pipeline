@@ -1,0 +1,11 @@
+E:\Projects\HON\MMCP\MMCP\target\debug\deps\libregex_automata-d5f5abe6fb28bd63.rmeta: C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\lib.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\classes.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\dense.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\dfa.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\regex.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\sparse.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\state_id.rs
+
+E:\Projects\HON\MMCP\MMCP\target\debug\deps\regex_automata-d5f5abe6fb28bd63.d: C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\lib.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\classes.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\dense.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\dfa.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\regex.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\sparse.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\state_id.rs
+
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\lib.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\classes.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\dense.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\dfa.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\regex.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\sparse.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\regex-automata-0.1.9\src\state_id.rs:

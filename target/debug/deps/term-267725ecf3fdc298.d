@@ -1,0 +1,11 @@
+E:\Projects\HON\MMCP\MMCP\target\debug\deps\libterm-267725ecf3fdc298.rmeta: C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\lib.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\mod.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\searcher.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parser\compiled.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parser\names.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parm.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\win.rs
+
+E:\Projects\HON\MMCP\MMCP\target\debug\deps\term-267725ecf3fdc298.d: C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\lib.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\mod.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\searcher.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parser\compiled.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parser\names.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parm.rs C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\win.rs
+
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\lib.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\mod.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\searcher.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parser\compiled.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parser\names.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\terminfo\parm.rs:
+C:\Users\danie\.cargo\registry\src\index.crates.io-6f17d22bba15001f\term-0.7.0\src\win.rs:

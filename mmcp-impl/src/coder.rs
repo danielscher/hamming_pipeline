@@ -1,4 +1,4 @@
-use std::error;
+use std::{error, vec};
 
 use async_std::prelude::*;
 use color_eyre::eyre::Result;
@@ -11,7 +11,6 @@ pub(super) async fn encode(
     while let Some(byte) = stream.next().await {
         data.push(byte);
     }
-    print!("original data: {:?}\n", &data[0..10]);
     let data = encode_data(&data);
     let output = async_std::stream::from_iter(data);
     Ok(output)
@@ -25,7 +24,6 @@ pub(super) async fn decode(
         data.push(byte);
     }
     let data = decode_data(&data);
-    println!("decoded data: {:?}", &data[0..10]);
     let output = async_std::stream::from_iter(data);
     Ok(output)
 }
@@ -46,6 +44,7 @@ fn encode_data(data: &[u8]) -> Vec<u8> {
         let p1 = c3 ^ c5 ^ c7;
         let p2 = c3 ^ c6 ^ c7;
         let p4 = c5 ^ c6 ^ c7;
+
 
         // encode the byte with parity bits.
         let segment_up = p1 << 7 | p2 << 6 | c3 << 5 | p4 << 4 | c5 << 3 | c6 << 2 | c7 << 1;
@@ -72,7 +71,6 @@ fn encode_data(data: &[u8]) -> Vec<u8> {
 
     // interleave the segments.
     let interleave_encoded = interleave_segments(&mut segments);
-    println!("interleaved: {:?}", &interleave_encoded[0..10]);
     interleave_encoded
 }
 
@@ -118,41 +116,37 @@ fn interleave_block(block: &Vec<u8>) -> Vec<u8> {
 
 fn decode_data(data: &[u8]) -> Vec<u8> {
     let deinterleaved = interleave_segments(&mut data.to_vec());
-    println!("deinterleaved: {:?}", &deinterleaved[0..10]);
-    let mut decoded = vec![];
-    for i in (0..deinterleaved.len()).step_by(2) {
-        let mut info_byte = 0;
 
-        // decode the upper 4 bits of the byte.
-        let upper_byte = deinterleaved[i];
-        let error_index = get_error_index(&upper_byte);
+    // correct the errors in the deinterleaved data.
+    let corrected = deinterleaved.iter().map(|byte| {
+        let error_index = get_error_index(&byte);
         if error_index != 0 {// check if error occured.
-            let corrected_byte = upper_byte ^ (1 << (8-error_index)); // flip the bit
-            let info_byte_upper = get_info_bits(&corrected_byte) << 4;
-            info_byte |= info_byte_upper;
+            byte ^ (1 << 8-error_index) // flip the bit
         } 
         else {
-            info_byte |= get_info_bits(&upper_byte) << 4;
+            *byte
         }
+    }).collect::<Vec<u8>>();
 
-        // decode the lower 4 bits of the byte.
-        if i + 1 > deinterleaved.len() {
-            decoded.push(info_byte);
-        }
-        let lower_byte = deinterleaved[i + 1];
-        let error_index = get_error_index(&lower_byte);
-        if error_index != 0 {// check if error occured.
-            let corrected_byte = lower_byte ^ (1 << error_index); // flip the bit
-            let info_byte_lower = get_info_bits(&corrected_byte);
-            info_byte |= info_byte_lower;
-        } 
-        else {
-            info_byte |= get_info_bits(&lower_byte);
-        }
-        decoded.push(info_byte);
+    // decode the corrected data.
+    let decoded = corrected.iter().map(|byte| {
+        let info_byte = get_info_bits(&byte);
+        info_byte
+    }).collect::<Vec<u8>>();
+
+    // remove padding from the decoded data.
+    //remove_padding(&mut decoded.to_vec());
+
+    // merge the upper and lower info bits to form the original data.
+    let mut original_data = vec![];
+    for i in (0..decoded.len()).step_by(2) {
+        let upper = decoded[i];
+        let lower = decoded[i + 1];
+        let merged = merge_info_bits(upper, lower);
+        original_data.push(merged);
     }
-    remove_padding(&mut decoded);
-    decoded
+    original_data
+    
 }
 
 // performs xor of positions of bits set to 1.
@@ -160,7 +154,7 @@ fn get_error_index (byte: &u8) -> u8 {
     let mut error_index = 0;
     for i in 1..8 {
         if byte & (1 << i) != 0 {
-            error_index ^= i;
+            error_index ^= 8-i;
         }
     }
     error_index
@@ -179,6 +173,7 @@ fn get_info_bits (byte: &u8) -> u8 {
 
 fn remove_padding(data: &mut Vec<u8>) {
     let padding = data.pop().unwrap() as usize;
+    //println!("Padding: {}", padding);
     for _ in 0..padding {
         data.pop();
     }
@@ -186,7 +181,27 @@ fn remove_padding(data: &mut Vec<u8>) {
 
 fn add_padding(data: &mut Vec<u8>) {
     let padding = 8 - data.len() % 8;
+    //println!("Padding: {}", padding);
     for i in 0..padding {
         data.push(i as u8);
     }
 }
+
+fn merge_info_bits(upper: u8, lower: u8) -> u8 {
+    let mut info_byte = 0b0000_0000;
+    info_byte |= (upper << 4) | lower;
+    info_byte
+}
+
+fn gcd(a: u32, b: u32) -> u32 {
+    if b == 0 {
+        a
+    } else {
+        gcd(b, a % b)
+    }
+}
+
+fn lcm(a: u32, b: u32) -> u32 {
+    a * b / gcd(a, b)
+}
+

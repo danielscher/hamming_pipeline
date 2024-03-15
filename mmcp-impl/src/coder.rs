@@ -70,22 +70,15 @@ fn encode_data(data: &[u8]) -> Vec<u8> {
         segments.push(segment_low);
     }
 
-    //interleave_segments(segments)
+    // interleave the segments.
     let interleave_encoded = interleave_segments(&mut segments);
     println!("interleaved: {:?}", &interleave_encoded[0..10]);
     interleave_encoded
 }
 
 
-/* 
-interleaves the data so that each byte consists of exactly 
-one bit from each segment.
 
- we achieve interleaving by iterating over each index of a byte
- and for each index, we iterate over the segments and extract the bit
- until we have processed all the segments. 
- */
-
+// perform block interleaving on the segments.
 fn interleave_segments(segments: &mut Vec<u8>) -> Vec<u8> {
     let mut interleaved_data = vec![];
     let bytes = segments.len();
@@ -103,6 +96,7 @@ fn interleave_segments(segments: &mut Vec<u8>) -> Vec<u8> {
     interleaved_data
 }
 
+// interleave 8 bytes of data.
 fn interleave_block(block: &Vec<u8>) -> Vec<u8> {
     let mut interleave = vec![];
     let mut interleaved_byte = 0b0000_0000;
@@ -164,7 +158,7 @@ fn decode_data(data: &[u8]) -> Vec<u8> {
 // performs xor of positions of bits set to 1.
 fn get_error_index (byte: &u8) -> u8 {
     let mut error_index = 0;
-    for i in 0..7 {
+    for i in 1..8 {
         if byte & (1 << i) != 0 {
             error_index ^= i;
         }
